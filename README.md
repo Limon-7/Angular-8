@@ -1,5 +1,5 @@
 # FastgameonApp
-App-component:
+## App-component:
 Selector can be - used as a class.
 Selector: ‘.  app-name’
 
