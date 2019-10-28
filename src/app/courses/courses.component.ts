@@ -9,6 +9,8 @@ import { CoursesService } from './courses.service';
 export class CoursesComponent {
   courseTitle = 'Course List';
   courses = ['BCSE', 'BMEC', 'BEEE'];
+  colSpan = 2;
+  imageUrl = 'https://www.hindisoch.com/wp-content/uploads/2019/07/Good-Morning-Green-Nature-Image-Photo.jpg';
 
 
   constructor(service: CoursesService) {
