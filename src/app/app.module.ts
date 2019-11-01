@@ -5,11 +5,15 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import {CoursesComponent } from './courses/courses.component';
 import { CoursesService } from './courses/courses.service';
+import { EventFilteringComponent } from './event-filtering/event-filtering.component';
+import { FavouriteComponent } from './favourite.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CoursesComponent
+    CoursesComponent,
+    EventFilteringComponent,
+    FavouriteComponent
   ],
   imports: [
     BrowserModule,

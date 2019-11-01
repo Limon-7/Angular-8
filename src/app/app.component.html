@@ -1,10 +1,12 @@
 <div class="container">
   <div class="row-1">
     <div class="col-12">
+
+     <app-fevourite></app-fevourite>
       <h1>My {{ title }}</h1>
       <hr>
       <app-courses></app-courses>
-
+      <app-event-filtering></app-event-filtering>
       <hr />
       <input type="text" [(ngModel)]="name" />
       <p>{{ name }}</p>
