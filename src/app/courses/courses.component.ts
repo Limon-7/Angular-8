@@ -8,7 +8,7 @@ import { CoursesService } from './courses.service';
 })
 export class CoursesComponent {
   courseTitle = 'Course List';
-  courses = ['BCSE', 'BMEC', 'BEEE'];
+  courses = ['BCSE', 'Che', 'BMEC', 'BEEE'];
   colSpan = 2;
   imageUrl = '';
 
