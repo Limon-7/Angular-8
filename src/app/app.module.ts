@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import {CoursesComponent } from './courses/courses.component';
 import { CoursesService } from './courses/courses.service';
 import { PostsComponent } from './posts/posts.component';
+import { PostService } from './services/post.service';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { PostsComponent } from './posts/posts.component';
     HttpClientModule
   ],
   providers: [
-    CoursesService
+    CoursesService,
+    PostService
   ],
   bootstrap: [AppComponent]
 })

@@ -4,6 +4,6 @@
   <li
   *ngFor="let post of posts"
   class="list-group-item">
-   <button (click)="upDatePost(post)" class="btn mce-btn-group">Update</button> {{ post.title}}
+   <button (click)="upDatePost(post)" class="btn btn-primary">Update</button> {{ post.title}} <button (click)="deletePost(post)" class="btn btn-danger">Delete</button>
   </li>
 </ul>
