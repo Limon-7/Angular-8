@@ -1,4 +1,8 @@
 # FastgameonApp
+## 7-Templete Driven Form:
+
+
+
 App-component:
 Selector can be - used as a class.
 Selector: ‘.  app-name’
