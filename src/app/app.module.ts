@@ -8,13 +8,15 @@ import {CoursesComponent } from './courses/courses.component';
 import { CoursesService } from './courses/courses.service';
 import { PostsComponent } from './posts/posts.component';
 import { PostService } from './services/post.service';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CoursesComponent,
-    PostsComponent
+    PostsComponent,
+    ContactFormComponent
   ],
   imports: [
     BrowserModule,
