@@ -1,7 +1,11 @@
+import { BadInput } from './../common/bad-input';
 
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../services/post.service';
+import { error } from 'util';
+import { AppError } from '../common/app-error';
+import { NotFoundError } from '../common/not-found-error';
 
 
 @Component({
@@ -32,6 +36,15 @@ export class PostsComponent implements OnInit {
       // post.id = response.id;
       this.posts.splice(0, 0, post);
       console.log(response);
+    },
+    // tslint:disable-next-line:no-shadowed-variable
+    (error: AppError) => {
+      if (error instanceof BadInput) {
+        // alert('This post is already deleted');
+        // this.form.setErrors(error.orginalError);
+      } else {
+        throw error;
+      }
     });
   }
   upDatePost(post) {
@@ -41,9 +54,18 @@ export class PostsComponent implements OnInit {
   }
 
   deletePost(post) {
-    this.service.deletePost(post).subscribe(response => {
+    this.service.deletePost(post.id).subscribe(response => {
       const index = this.posts.indexOf(post);
       this.posts.splice(index, 1);
+      console.log(response);
+    },
+    // tslint:disable-next-line: no-shadowed-variable
+    (error: AppError) => {
+      if (error instanceof NotFoundError) {
+        alert('This post is already deleted');
+      } else {
+        throw error;
+      }
     });
   }
 
