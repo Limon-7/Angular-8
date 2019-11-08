@@ -9,19 +9,19 @@
       <div *ngIf="username.pending"> Checking for uniqueness....</div>
       <div *ngIf="username.touched && username.invalid"
         class="alert alert-danger">
-        <div *ngIf="username?.errors.required">
+        <div *ngIf="!!username?.errors.required">
           User Name is required
         </div>
-        <div *ngIf="username?.errors.minlength">
-          User Name must be {{ username?.errors.minlength.requiredLength}} required
+        <div *ngIf="!!username.errors.minlength">
+          User Name must be {{!!username.errors.minlength.requiredLength}} Charecter
         </div>
-        <div *ngIf="username?.errors.maxlength">
-          User Name atmost {{ username?.errors.maxlength.requiredLength}} required
+        <div *ngIf="!!username?.errors.maxlength">
+          User Name atmost {{!! username.errors.maxlength.requiredLength}} required
         </div>
-        <div *ngIf="username?.errors.cannotContainSpace">
+        <div *ngIf="!!username?.errors.cannotContainSpace">
           User Name can not contain space
         </div>
-        <div *ngIf="username?.errors.shouldBeUnique">
+        <div *ngIf="!!username?.errors.shouldBeUnique">
             Username is already taken
         </div>
       </div>
