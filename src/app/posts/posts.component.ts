@@ -20,25 +20,25 @@ export class PostsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.getPost().subscribe(response => {
-      // console.log(response);
-      this.posts = response;
+    this.service.getAll().subscribe(posts => {this.posts = posts;
     });
   }
 
   createPost(input: HTMLInputElement) {
     const post: any = {
       title: input.value
-
     };
+    this.posts.splice(0, 0, post);
     input.value = '';
-    this.service.createPost(input).subscribe(response => {
-      // post.id = response.id;
-      this.posts.splice(0, 0, post);
-      console.log(response);
+    this.service.create(input).subscribe(
+      newPost => {
+       // post.id = newPost.id;
+        console.log(newPost);
     },
     // tslint:disable-next-line:no-shadowed-variable
     (error: AppError) => {
+      this.posts.splice(0, 1);
+
       if (error instanceof BadInput) {
         // alert('This post is already deleted');
         // this.form.setErrors(error.orginalError);
@@ -48,19 +48,22 @@ export class PostsComponent implements OnInit {
     });
   }
   upDatePost(post) {
-    this.service.upDatePost(post).subscribe( response => {
-      console.log(response);
+    this.service.update(post).subscribe( updatePost => {
+      console.log(updatePost);
     });
   }
 
   deletePost(post) {
-    this.service.deletePost(post.id).subscribe(response => {
-      const index = this.posts.indexOf(post);
-      this.posts.splice(index, 1);
-      console.log(response);
+    const index = this.posts.indexOf(post);
+    this.posts.splice(index, 1);
+    this.service.delete(post.id).subscribe(
+      () => {
+          console.log();
     },
     // tslint:disable-next-line: no-shadowed-variable
     (error: AppError) => {
+      this.posts.splice(index, 0, post );
+
       if (error instanceof NotFoundError) {
         alert('This post is already deleted');
       } else {
