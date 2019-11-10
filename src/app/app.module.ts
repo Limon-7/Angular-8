@@ -47,7 +47,7 @@ import { GithubFollowersService } from './services/github-followers.service';
         component: GithubFollowersComponent
       },
       {
-        path: 'followers/:username',
+        path: 'followers/:id/:name',
         component: GithubProfileComponent
       },
       {
